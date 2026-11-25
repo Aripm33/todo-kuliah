@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Daftar Tugas Kuliah</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;600;800&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <main class="app">
+      <header class="kepala">
+        <h1 id="app-name">Daftar Tugas Kuliah</h1>
+        <p class="versi">Versi <span id="app-version">1.0.0</span></p>
+      </header>
+
+      <form id="form-tugas" class="form" autocomplete="off">
+        <label class="field full">
+          <span>Judul tugas</span>
+          <input id="judul" type="text" maxlength="80" required placeholder="Contoh: Laporan praktikum basis data" />
+        </label>
+        <label class="field">
+          <span>Mata kuliah</span>
+          <input id="matkul" type="text" maxlength="60" required placeholder="Contoh: Sistem Basis Data" />
+        </label>
+        <label class="field">
+          <span>Tenggat</span>
+          <input id="tenggat" type="date" required />
+        </label>
+        <div class="aksi-form full">
+          <button id="btn-simpan" class="btn utama" type="submit">Tambah tugas</button>
+          <button id="btn-batal" class="btn" type="button" hidden>Batal</button>
+        </div>
+      </form>
+
+      <section aria-labelledby="judul-daftar">
+        <div class="bar-daftar">
+          <h2 id="judul-daftar">Tugas saya</h2>
+          <div class="filter" role="group" aria-label="Filter status">
+            <button class="chip" data-filter="Semua" aria-pressed="true">Semua</button>
+            <button class="chip" data-filter="Belum Selesai" aria-pressed="false">Belum Selesai</button>
+            <button class="chip" data-filter="Selesai" aria-pressed="false">Selesai</button>
+          </div>
+        </div>
+        <p id="ringkasan" class="ringkasan" aria-live="polite"></p>
+        <ul id="daftar" class="daftar"></ul>
+        <p id="kosong" class="kosong" hidden></p>
+      </section>
+    </main>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
