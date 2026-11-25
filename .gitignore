@@ -1,0 +1,16 @@
+# Dependensi dan hasil build
+node_modules
+dist
+
+# Environment variables (rahasia/lokal), .env.example tetap di-commit
+.env
+.env.local
+.env.*.local
+
+# Log dan file editor/OS
+*.log
+npm-debug.log*
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
