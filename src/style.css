@@ -1,0 +1,133 @@
+:root {
+  --ink: #1f2d2b;
+  --kertas: #f3f5f1;
+  --putih: #ffffff;
+  --garis: #d3dad2;
+  --hijau: #1e7a5f;
+  --jingga: #c4510f;
+  --merah: #b3261e;
+  --redup: #5d6b68;
+  font-family: "Bricolage Grotesque", system-ui, -apple-system, "Segoe UI", sans-serif;
+  color: var(--ink);
+  background: var(--kertas);
+  line-height: 1.5;
+}
+
+* { box-sizing: border-box; }
+body { margin: 0; }
+button, input { font: inherit; color: inherit; }
+
+.app { max-width: 720px; margin: 0 auto; padding: 2rem 1rem 4rem; }
+
+.kepala { margin-bottom: 1.5rem; }
+.kepala h1 { margin: 0; font-size: clamp(1.9rem, 6vw, 2.8rem); font-weight: 800; line-height: 1.1; letter-spacing: -0.02em; }
+.versi { margin: 0.35rem 0 0; color: var(--redup); font-size: 0.9rem; }
+
+/* Form */
+.form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  padding: 1.25rem;
+  background: var(--putih);
+  border: 1px solid var(--garis);
+  border-radius: 12px;
+  margin-bottom: 2rem;
+}
+.full { grid-column: 1 / -1; }
+.field { display: grid; gap: 0.3rem; font-weight: 600; font-size: 0.9rem; }
+.field input {
+  width: 100%;
+  padding: 0.65rem 0.75rem;
+  border: 1px solid var(--garis);
+  border-radius: 8px;
+  background: var(--kertas);
+  font-weight: 400;
+}
+.aksi-form { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+
+/* Tombol */
+.btn {
+  padding: 0.6rem 1rem;
+  border: 1px solid var(--ink);
+  border-radius: 8px;
+  background: transparent;
+  font-weight: 600;
+  cursor: pointer;
+}
+.btn:hover { background: rgba(31, 45, 43, 0.08); }
+.btn.utama { background: var(--ink); color: var(--putih); }
+.btn.utama:hover { background: #2d423f; }
+.btn.kecil { padding: 0.3rem 0.7rem; font-size: 0.85rem; }
+.btn.bahaya { border-color: var(--merah); color: var(--merah); }
+.btn.bahaya:hover { background: rgba(179, 38, 30, 0.08); }
+
+:is(button, input):focus-visible { outline: 3px solid var(--hijau); outline-offset: 2px; }
+
+/* Daftar */
+.bar-daftar { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 0.75rem; }
+.bar-daftar h2 { margin: 0; font-size: 1.4rem; }
+.filter { display: flex; gap: 0.4rem; flex-wrap: wrap; }
+.chip { padding: 0.35rem 0.8rem; border: 1px solid var(--garis); border-radius: 999px; background: var(--putih); cursor: pointer; font-size: 0.85rem; }
+.chip[aria-pressed="true"] { background: var(--ink); border-color: var(--ink); color: var(--putih); }
+.ringkasan { margin: 0.5rem 0 1rem; color: var(--redup); font-size: 0.9rem; }
+
+.daftar { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.75rem; }
+.tugas {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 1rem;
+  align-items: center;
+  padding: 0.85rem 1rem;
+  background: var(--putih);
+  border: 1px solid var(--garis);
+  border-radius: 12px;
+}
+.tugas.selesai { background: transparent; }
+.tugas.selesai .judul-tugas { text-decoration: line-through; color: var(--redup); }
+
+/* Tab tanggal ala kalender sobek */
+.tab-tanggal {
+  display: grid;
+  justify-items: center;
+  width: 3.5rem;
+  padding: 0.3rem 0 0.4rem;
+  border-radius: 8px;
+  background: var(--ink);
+  color: var(--putih);
+  line-height: 1.1;
+}
+.tab-tanggal.dekat { background: var(--jingga); }
+.tab-tanggal.telat { background: var(--merah); }
+.tugas.selesai .tab-tanggal { background: var(--redup); opacity: 0.6; }
+.tab-bulan { font-size: 0.75rem; }
+.tab-hari { font-size: 1.5rem; font-weight: 800; }
+
+.judul-tugas { margin: 0; font-size: 1.05rem; overflow-wrap: anywhere; }
+.meta { margin: 0.15rem 0 0; color: var(--redup); font-size: 0.85rem; }
+
+.aksi { display: flex; gap: 0.4rem; align-items: center; flex-wrap: wrap; justify-content: flex-end; }
+.status {
+  padding: 0.3rem 0.7rem;
+  border: 1px solid var(--jingga);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--jingga);
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+.status.selesai { border-color: var(--hijau); background: var(--hijau); color: var(--putih); }
+
+.kosong { padding: 2rem 1rem; text-align: center; color: var(--redup); border: 1px dashed var(--garis); border-radius: 12px; }
+
+/* Responsif */
+@media (max-width: 560px) {
+  .form { grid-template-columns: 1fr; }
+  .tugas { grid-template-columns: auto 1fr; }
+  .aksi { grid-column: 1 / -1; justify-content: flex-start; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}
